@@ -1,0 +1,36 @@
+let db = require("./db");
+let Pessoa = require("./model/Pessoa");
+
+async function sincronizar(){
+    await db.sync();
+}
+
+async function inserir(obj){
+    let res = await Pessoa.create(obj)
+    console.log(res);
+}
+/*
+let T1 = {nome_completo: "Ana Beatriz Soares", endereco: "Rua São luis"}
+let T2 = {nome_completo: "Adriana Martins Souto", endereco: "Rua Benevenuto Vitório"}
+let T3 = {nome_completo: "Carla Dias Santiago", endereco: "Rua José Inacio"}
+let T4 = {nome_completo: "Tawan Freire Costa", endereco: "Rua Senhor dos passos"}
+let T5 = {nome_completo: "Luana Batista Silva", endereco: "Rua Gena Showalter"}
+
+inserir(T1);
+inserir(T2);
+inserir(T3);
+inserir(T4);
+inserir(T5);
+*/
+
+async function consultar(){
+    let resultado = await Pessoa.findAll();
+    console.log(resultado[2]);
+    console.log(resultado[0]);
+    console.log(resultado[1]);
+    console.log(resultado[3]);
+    console.log(resultado[4]);
+}
+//sincronizar();
+
+consultar();
